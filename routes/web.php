@@ -3,6 +3,7 @@
 use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -30,3 +31,10 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
 Route::get('/candidat', [CandidatController::class, 'index'])->name('candidat.index');
 Route::get('/candidat/list', [CandidatController::class, 'candidatList'])->name('');
 Route::post('/candidat/store', [CandidatController::class, 'store'])->name('candidat.store');
+
+
+
+//*Products
+
+Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
