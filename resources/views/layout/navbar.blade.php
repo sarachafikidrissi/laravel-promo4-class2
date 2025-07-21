@@ -3,4 +3,6 @@
     <a href="{{ route('post.index') }}">Post</a>
     <a href="{{ route('candidat.index') }}">Candidat</a>
     <a href="{{ route('product.create') }}">Create a Product</a>
+    <a href="{{ route('product.index') }}">Products</a>
+
 </nav>

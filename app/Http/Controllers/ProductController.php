@@ -13,6 +13,9 @@ class ProductController extends Controller
     public function index()
     {
         //* view to display all products
+        //* DB::all() ==> retireves all data in DB table
+        $products = Product::all(); 
+        return view('Product.products', compact('products'));
     }
 
     /**
@@ -52,7 +55,8 @@ class ProductController extends Controller
             "description" => $request->description
         ]);
         
-        return back();
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -84,6 +88,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        //* to delete a specific row from database
+
+        $product->delete();
+
+        return back();
     }
 }
