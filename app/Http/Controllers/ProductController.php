@@ -65,6 +65,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+        return view('Product.partials.show', compact('product'));
     }
 
     /**
@@ -73,6 +74,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        return view('Product.partials.edit', compact('product'));
     }
 
     /**
@@ -81,6 +83,27 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+
+        $request-> validate([
+            "name" => "required|string|max:20",
+            "price" => "required|integer",
+            "stock" => "required|integer",
+            "sizes" => "required",
+            "description" => "required|max:250"
+        ]);
+
+
+        $product->update([
+            "name" => $request->name,
+            "price" => $request->price,
+            "stock" => $request->stock,
+            "sizes" => $request->sizes,
+            "description" => $request->description
+        ]);
+
+        return redirect()->route('product.index');
+
+
     }
 
     /**

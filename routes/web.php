@@ -38,5 +38,9 @@ Route::post('/candidat/store', [CandidatController::class, 'store'])->name('cand
 
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product/show/{product}', [ProductController::class, 'show'])->name('product.show');
 Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
 Route::delete('/product/destory/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');   
+
