@@ -13,6 +13,11 @@ class TodoController extends Controller
     public function index()
     {
         $todos = Todo::all();
+        $colors = array('#FFD95F', '#FFEFC8', '#B8D576', '#D70654', '#2F5249', '#437057', '#97B067', '#E3DE61');
+
+        foreach ($todos as $todo) {
+            $todo->color = $colors[array_rand($colors)];
+        }
         return view('Todo.todo', compact('todos'));
     }
 

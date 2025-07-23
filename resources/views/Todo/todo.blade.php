@@ -20,7 +20,7 @@
 
         <div class="w-full grid grid-cols-4 gap-2">
             @foreach ($todos as $todo)
-                <div class="w-[300px] h-[300px] bg-amber-200 rounded-md p-5 relative edit">
+                <div class="w-[300px] h-[300px]  rounded-md p-5 relative edit" style="background-color: {{ $todo->color }}">
                     <textarea name="" id="" cols="30" rows="10" class="outline-0 text-xl h-[80%]"  readonly>{{ $todo->task }}</textarea>
 
                     <div class="flex gap-x-4 absolute right-2">
