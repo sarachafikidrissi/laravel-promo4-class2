@@ -4,6 +4,7 @@ use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -42,5 +43,14 @@ Route::get('/product/show/{product}', [ProductController::class, 'show'])->name(
 Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
 Route::delete('/product/destory/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
-Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');   
+Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');  
+
+
+
+//* Todo
+
+Route::get('/todo', [TodoController::class, 'index'])->name('todo.index');
+Route::post('/todo/store', [TodoController::class, 'store'])->name('todo.store');
+Route::delete('/todo/destroy/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy');
+Route::put('/todo/update/{todo}', [TodoController::class, 'update'])->name('todo.update');
 
