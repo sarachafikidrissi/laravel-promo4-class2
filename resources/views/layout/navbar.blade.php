@@ -9,5 +9,6 @@
         <a href="{{ route('todo.index') }}">Todo</a>
         <a href="{{ route('mail.create') }}">Contact Us</a>
         <a href="{{ route('mail.index') }}">Emails</a>
+        <a href="{{ route('gallery.index') }}">Gallery</a>
     </div>
 </nav>

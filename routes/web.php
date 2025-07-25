@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PostController;
@@ -69,3 +70,9 @@ Route::put('/email/update/{mail}', [MailController::class, 'update'])->name('mai
 //^ email filter
 
 Route::post('/email/filter', [MailController::class, 'filterEmail'])->name('mail.filter');
+
+//* gallery
+
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
+Route::delete('/gallery/destroy/{gallery}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
