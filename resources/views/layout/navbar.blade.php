@@ -7,5 +7,7 @@
         <a href="{{ route('product.create') }}">Create a Product</a>
         <a href="{{ route('product.index') }}">Products</a>
         <a href="{{ route('todo.index') }}">Todo</a>
+        <a href="{{ route('mail.create') }}">Contact Us</a>
+        <a href="{{ route('mail.index') }}">Emails</a>
     </div>
 </nav>

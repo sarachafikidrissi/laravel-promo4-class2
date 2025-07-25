@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TodoController;
@@ -53,4 +54,14 @@ Route::get('/todo', [TodoController::class, 'index'])->name('todo.index');
 Route::post('/todo/store', [TodoController::class, 'store'])->name('todo.store');
 Route::delete('/todo/destroy/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy');
 Route::put('/todo/update/{todo}', [TodoController::class, 'update'])->name('todo.update');
+
+
+//* Email
+
+Route::get('/email/create', [MailController::class, 'create'])->name('mail.create');
+Route::get('/email', [MailController::class, 'index'])->name('mail.index');
+Route::post('/email/store', [MailController::class, 'store'])->name('mail.store');
+Route::delete('/email/destroy/{mail}', [MailController::class, 'destroy'])->name('mail.destroy');
+
+Route::put('/email/update/{mail}', [MailController::class, 'update'])->name('mail.update');
 
