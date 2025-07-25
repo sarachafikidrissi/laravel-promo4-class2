@@ -54,6 +54,36 @@ class MailController extends Controller
 
     }
 
+    public function filterEmail(Request $request) {
+        
+        $emailPriority = $request->emailPriority;
+        $isRead = $request->isRead;
+        $sortOrder = $request->sortOrder;
+
+        $query = Mail::query();
+
+
+        if($emailPriority != 'all'){
+            $query->where('email_priority', $emailPriority)->get();
+        }
+
+       if($isRead != 'all'){
+            $query->where('is_read', $isRead)->get();
+       }
+
+
+       if($sortOrder == 'oldest'){
+            $query->orderBy('created_at', 'asc')->get();
+       }else{
+            $query->orderBy('created_at', 'desc')->get();
+       }
+        $mails = $query->get();
+
+        return view('Contact.emails', compact('mails'));
+
+
+    }
+
     /**
      * Display the specified resource.
      */

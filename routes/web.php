@@ -65,3 +65,7 @@ Route::delete('/email/destroy/{mail}', [MailController::class, 'destroy'])->name
 
 Route::put('/email/update/{mail}', [MailController::class, 'update'])->name('mail.update');
 
+
+//^ email filter
+
+Route::post('/email/filter', [MailController::class, 'filterEmail'])->name('mail.filter');
