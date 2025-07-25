@@ -76,3 +76,4 @@ Route::post('/email/filter', [MailController::class, 'filterEmail'])->name('mail
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
 Route::delete('/gallery/destroy/{gallery}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+Route::put('/gallery/update/{gallery}', [GalleryController::class, 'update'])->name('gallery.update');

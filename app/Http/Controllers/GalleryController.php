@@ -72,6 +72,28 @@ class GalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         //
+         $request->validate([
+            "image_name" => "required|mimes:png,jpg|max:2048"
+        ]);
+
+        //* retireve relative path of a file
+        $path = storage_path('app/public/' . $gallery->image_name);
+
+        $storage = Storage::disk('public');
+
+        //* check if the path exists in local storage ==> delete/replace
+
+        if(file_exists($path)){
+            $storage->delete($path);
+            //*replace old image with new image in a scpecific storage path
+            $request->image_name->move(storage_path('app/public/gallery/'), $gallery->image_name);
+        }
+       return back();
+
+
+
+
+
     }
 
     /**

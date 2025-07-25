@@ -47,3 +47,19 @@ task.forEach(e => {
     
 })
 
+
+let editImageBtn = document.querySelectorAll('.galleryEdit');
+
+editImageBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        let updateDiv = btn.nextElementSibling
+        updateDiv.classList.remove('hidden');
+        updateDiv.lastElementChild.addEventListener('click', () => {
+            updateDiv.classList.add('hidden');
+        })
+    })
+})
+
+
+
+
