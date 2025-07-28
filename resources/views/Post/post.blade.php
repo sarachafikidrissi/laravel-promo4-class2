@@ -28,12 +28,20 @@
         {{-- show all posts --}}
         <div class="w-[70vw] h-[50vh] flex flex-wrap gap-2 ">
             @foreach ($posts as $post)
-                <div class="w-[20vw] bg-yellow-100 rounded-md border p-2">
+                <div class="w-[20vw] bg-yellow-100 rounded-md border p-2 flex flex-col gap-y-2">
                    <h1 class="text-2xl font-bold ">{{ $post->post_title }}</h1>
                    <span class="text-sm text-gray-400">{{ $post->author_name }}</span>
                    <p>{{ $post->post_description }}</p>
                    <p>{{ $post->id }}</p>
                    <a href="/posts/{{ $post->id }}" class="text-blue-600 underline">see details</a>
+                   {{-- coomments --}}
+                    <form action="/comment/store" method="post">
+                        @csrf
+
+                        <input type="text" name="comment" placeholder="enter your comment">
+                        <input type="text" name="post_id" value="{{ $post->id }}" id="" class="hidden">
+                        <button class="px-2 py-0.5 bg-red-100">Save</button>
+                    </form>
                 </div>
             @endforeach
         </div>

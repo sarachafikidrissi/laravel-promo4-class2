@@ -90,3 +90,7 @@ Route::resource('blog', BlogController::class);
 
 Route::get('/download-file', [GalleryController::class, 'downloadFile'])->name('file.download');
 Route::post('/url/store', [GalleryController::class, 'storeUrl'])->name('url.store');
+
+//* comments
+
+Route::post('/comment/store', [PostController::class, 'storeComment']);

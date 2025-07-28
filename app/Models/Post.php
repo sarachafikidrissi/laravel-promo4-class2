@@ -9,6 +9,10 @@ class Post extends Model
     protected $fillable = [
         "author_name",
         "post_title",
-        "post_description"
+        "post_description",
     ];
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -87,5 +88,20 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function storeComment(Request $request){
+        dd($request->all());
+        $request->validate([
+            "comment" => "required",
+            "post_id" => "required"
+        ]);
+
+
+        Comment::create([
+            "comment" => $request->comment,
+            "post_id" => $request->post_id
+        ]);
+        return back();
     }
 }

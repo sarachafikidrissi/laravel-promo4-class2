@@ -10,5 +10,16 @@
         <p>{{ $post->post_description }}</p>
         <p>{{ $post->created_at }}</p>
     </div>
+
+
+
+    {{-- post comment --}}
+
+
+    <div>
+        @foreach ($post->comments as $comment)
+            <p>{{ $comment->comment }}</p>
+        @endforeach
+    </div>
     </div>
 @endsection
