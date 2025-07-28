@@ -89,11 +89,6 @@ class GalleryController extends Controller
             $request->image_name->move(storage_path('app/public/gallery/'), $gallery->image_name);
         }
        return back();
-
-
-
-
-
     }
 
     /**

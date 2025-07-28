@@ -10,5 +10,6 @@
         <a href="{{ route('mail.create') }}">Contact Us</a>
         <a href="{{ route('mail.index') }}">Emails</a>
         <a href="{{ route('gallery.index') }}">Gallery</a>
+        <a href="{{ route('blog.index') }}">Blog</a>
     </div>
 </nav>

@@ -62,4 +62,23 @@ editImageBtn.forEach(btn => {
 
 
 
+let blogModalBtn = document.querySelector('.blogModalBtn');
+let blogModal = document.querySelector('.blogModal');
+let cancelBtn = document.querySelector('.cancel')
+
+blogModalBtn.addEventListener('click', () => {
+    blogModal.classList.remove('hidden')
+
+
+})
+
+cancelBtn.addEventListener('click', () => {
+    blogModal.classList.add('hidden')
+})
+
+
+
+
+
+
 

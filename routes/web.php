@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
@@ -77,3 +78,9 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index
 Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
 Route::delete('/gallery/destroy/{gallery}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 Route::put('/gallery/update/{gallery}', [GalleryController::class, 'update'])->name('gallery.update');
+
+
+//* Blog
+
+
+Route::resource('blog', BlogController::class);
