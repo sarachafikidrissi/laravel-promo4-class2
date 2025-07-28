@@ -117,4 +117,42 @@ class GalleryController extends Controller
 
         return back();
     }
+
+    //^ download file functions
+
+    public function downloadFile(){
+        return view('Gallery.download-file');
+    }
+
+    public function storeUrl(Request $request){
+
+
+        //* get the url content
+        $file = file_get_contents($request->url);
+
+        //* get the extension of the file
+
+        $extension = pathinfo($request->url, PATHINFO_EXTENSION);
+
+
+        //* create a filename
+        $filename = hash('sha256', $file) . '.' . $extension;
+
+
+        //* store the file in local storage 
+
+        Storage::disk('public')->put('download/' . $filename, $file);
+
+
+        //* get the relative path
+
+        $path =storage_path('app/public/download/') . $filename;
+        return response()->download($path, $filename);
+
+
+
+
+
+
+    }
 }

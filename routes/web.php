@@ -84,3 +84,9 @@ Route::put('/gallery/update/{gallery}', [GalleryController::class, 'update'])->n
 
 
 Route::resource('blog', BlogController::class);
+
+
+//* download file
+
+Route::get('/download-file', [GalleryController::class, 'downloadFile'])->name('file.download');
+Route::post('/url/store', [GalleryController::class, 'storeUrl'])->name('url.store');

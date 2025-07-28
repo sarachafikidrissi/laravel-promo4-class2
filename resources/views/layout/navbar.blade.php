@@ -11,5 +11,6 @@
         <a href="{{ route('mail.index') }}">Emails</a>
         <a href="{{ route('gallery.index') }}">Gallery</a>
         <a href="{{ route('blog.index') }}">Blog</a>
+        <a href="{{ route('file.download') }}">File Download</a>
     </div>
 </nav>
