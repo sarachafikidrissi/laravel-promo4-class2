@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -12,7 +13,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog.index');
+        $blogs = Blog::all();
+        return view('blog.index', compact('blogs'));
     }
 
     /**
@@ -28,7 +30,6 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $request->validate(([
             "title" => "required|string|max:30",
             "description" => "required|string|max:2050",
@@ -42,10 +43,8 @@ class BlogController extends Controller
             "description" => $request->description,
             "cover" => $path
         ]);
-
-      return back();
-
-
+        flash()->success('Blog has been added successfully!');
+        return back();
     }
 
     /**
@@ -70,6 +69,30 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         //
+
+        $cover = $request->cover;
+
+        if($cover){
+            //logic to update image
+            $path = storage_path('app/public/' . $blog->cover);
+
+
+            $storage = Storage::disk('public');
+            if(file_exists($path)){
+                $storage->delete($path);
+                //* image coming from request ==== > move(param1=(relative path) , param2=(image name coming from database))
+                $cover->move(storage_path('app/public/blogs/') , $blog->cover);
+            }
+        }
+
+        $blog->update([
+            "title" => $request->title,
+            "description" => $request->description
+        ]);
+
+        return back();
+
+
     }
 
     /**
@@ -78,5 +101,16 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         //
+        $path = $blog->cover;
+
+        $storage = Storage::disk('public');
+
+        if($storage->exists($path)){
+            $storage->delete($path);
+            $blog->delete();
+        }
+
+        flash()->success('Blog has been deleted successfully!');
+        return back();
     }
 }

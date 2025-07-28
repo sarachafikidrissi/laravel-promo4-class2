@@ -1,4 +1,4 @@
-<nav class="w-[25vw] h-screen bg-gray-800 p-10 flex flex-col gap-y-10">
+<nav class="w-[25vw] h-screen bg-gray-800 p-10 flex flex-col gap-y-10 fixed top-0 left-0">
     <h1 class="text-white text-3xl ">Cooding School Blog </h1>
 
     <div class="w-full   flex flex-col gap-y-10 hover:bg-[#415E72] rounded-xl cursor-pointer p-2">

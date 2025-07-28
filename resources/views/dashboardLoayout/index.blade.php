@@ -15,7 +15,7 @@
         @endif
 </head>
 <body>
-    <div class="flex ">
+    <div class="flex justify-end">
         @include('dashboardLoayout.sidebar')
         
         <div class="w-[75vw] p-10">
@@ -55,6 +55,9 @@
     </form>
 </div>
 
+{{-- edit modal --}}
+
+  
     </div>
 </body>
 </html>
