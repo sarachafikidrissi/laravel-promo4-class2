@@ -54,8 +54,97 @@
 
     </form>
 </div>
+{{-- categroy --}}
+<div class="bg-white border rounded-lg px-8 py-6 mx-auto my-8  w-[40vw] absolute top-[20%] left-[40%] categoryModal hidden">
+    <h2 class="text-2xl font-medium mb-4">Create Category</h2>
+    <form action="/category" method="post">
+        @csrf
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-medium mb-2">
+                Category Name
+            </label>
+            <input type="text" id="name" name="name"
+                class="border border-gray-400 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400" required>
+        </div>
+        <div class="flex justify-between">
+            
+            <button  class="bg-blue-900 text-white px-4 py-2 rounded-lg cancel hover:bg-blue-600">Cancel</button>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Submit</button>
+        </div>
 
-{{-- edit modal --}}
+    </form>
+</div>
+
+{{-- author modal --}}
+<div class="bg-white border rounded-lg px-8 py-6 mx-auto my-8  w-[40vw] absolute top-[20%] left-[40%] authModal hidden">
+    <h2 class="text-2xl font-medium mb-4">Add author</h2>
+    <form e action="/author" method="post">
+        @csrf
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-medium mb-2">
+                author Name
+            </label>
+            <input type="text" id="name" name="name"
+                class="border border-gray-400 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400" required>
+        </div>
+        <div class="flex justify-between">
+            
+            <button  class="bg-blue-900 text-white px-4 py-2 rounded-lg cancel hover:bg-blue-600">Cancel</button>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+
+{{-- book form --}}
+<div class="bg-white border rounded-lg px-8 py-6 mx-auto my-8  w-[40vw] absolute top-[20%] left-[40%] bookModal hidden">
+    <h2 class="text-2xl font-medium mb-4">Create book</h2>
+    <form enctype="multipart/form-data"  action="/book" method="post">
+        @csrf
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+            <input type="text" id="name" name="name"
+                class="border border-gray-400 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-medium mb-2">Select Category</label>
+           <select name="category_id" id="" class="border px-4 py-1.5 w-[40%]">
+               <option value="" selected disabled>Select Categories</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+           </select>
+        </div>
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-medium mb-2">Select Author</label>
+           <select name="author_id" id="" class="border px-4 py-1.5 w-[40%]">
+               <option value="" selected disabled>Select Author</option>
+                @foreach ($authors as $author)
+                    <option value="{{ $author->id }}">{{ $author->name }}</option>
+                @endforeach
+           </select>
+        </div>
+     
+     
+        
+
+         <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-medium mb-2">Blog Cover</label>
+            <input type="file" accept="image/png, image/jpg, image/jpeg"  id="name" name="cover"
+                class="border border-gray-400 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400" required>
+        </div>
+        <div class="flex justify-between">
+            
+            <button  class="bg-blue-900 text-white px-4 py-2 rounded-lg cancel hover:bg-blue-600">Cancel</button>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+
 
   
     </div>

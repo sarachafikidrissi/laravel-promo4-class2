@@ -64,3 +64,28 @@ editBtn.forEach((btn, index) => {
         editModal[index].classList.remove("hidden");
     });
 });
+
+//* category modal
+
+
+let catModalBtn = document.querySelector('.catModalBtn')
+let categModal = document.querySelector('.categoryModal')
+
+catModalBtn.addEventListener('click', () => {
+    categModal.classList.remove('hidden')
+})
+
+//*author
+let authModalBtn = document.querySelector('.authModalBtn')
+let authModal = document.querySelector('.authModal')
+
+authModalBtn.addEventListener('click', () => {
+    authModal.classList.remove('hidden')
+})
+//*abook
+let bookModalBtn = document.querySelector('.bookModalBtn')
+let bookModal = document.querySelector('.bookModal')
+
+bookModalBtn.addEventListener('click', () => {
+   bookModal.classList.remove('hidden')
+})

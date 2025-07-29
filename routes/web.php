@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
@@ -94,3 +97,13 @@ Route::post('/url/store', [GalleryController::class, 'storeUrl'])->name('url.sto
 //* comments
 
 Route::post('/comment/store', [PostController::class, 'storeComment']);
+
+
+
+//* Book store
+
+Route::resource('book', BookController::class);
+
+
+Route::resource('category', CategoryController::class);
+Route::resource('author', AuthorController::class);
