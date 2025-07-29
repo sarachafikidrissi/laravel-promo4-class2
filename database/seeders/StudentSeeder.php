@@ -13,22 +13,37 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        Student::insert([
+        Student::insert(
             [
-            'name' => 'sara',
-            'class' => 'cooding 3',
-            'age' => 28,
-            'attendence' => true,
-            'passed' => true
-        ], 
-        [
-            'name' => 'hind',
-            'class' => 'cooding 2',
-            'age' => 20,
-            'attendence' => true,
-            'passed' => false
-        ]
-        ]
-    );
+                [
+                    'name' => 'sara',
+                    'class' => 'cooding 3',
+                    'age' => 28,
+                    'attendence' => true,
+                    'passed' => true
+                ],
+                [
+                    'name' => 'hind',
+                    'class' => 'cooding 2',
+                    'age' => 20,
+                    'attendence' => true,
+                    'passed' => false
+                ],
+                [
+                    'name' => 'amal',
+                    'class' => 'cooding 2',
+                    'age' => 20,
+                    'attendence' => true,
+                    'passed' => false
+                ],
+                [
+                    'name' => 'yassin',
+                    'class' => 'cooding 2',
+                    'age' => 20,
+                    'attendence' => true,
+                    'passed' => false
+                ]
+            ]
+        );
     }
 }

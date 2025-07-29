@@ -23,14 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-
-        $authors = Author::all();
-        $categories = Category::all();
-        $books = Book::all();
-        view()->share([
-            "authors" => $authors,
-            "categories" => $categories,
-            "books" => $books
-        ]);
+        
+        
     }
 }

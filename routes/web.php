@@ -107,3 +107,12 @@ Route::resource('book', BookController::class);
 
 Route::resource('category', CategoryController::class);
 Route::resource('author', AuthorController::class);
+
+
+
+//*many to many
+
+
+Route::get('/school-students', [CandidatController::class, 'studentList']);
+
+Route::post('/assign-course/store', [CandidatController::class, 'assignCourse']);

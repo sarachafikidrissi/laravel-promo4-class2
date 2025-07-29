@@ -11,6 +11,11 @@ class Student extends Model
         'class',
         'age',
         'attendence',
-        'passed'
+        'passed',
+
     ]);
+
+    public function courses(){
+        return $this->belongsToMany(Course::class, 'student_course');
+    }
 }

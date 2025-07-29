@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidat;
+use App\Models\Course;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class CandidatController extends Controller
@@ -92,5 +94,30 @@ class CandidatController extends Controller
     public function destroy(Candidat $candidat)
     {
         //
+    }
+
+    public function studentList(){
+
+        $students = Student::all();
+        $courses = Course::all();
+        return view('Student.school-students', compact('students', 'courses'));
+    }
+
+    public function assignCourse(Request $request){
+        
+        
+        $request->validate([
+            "courses" => "required"
+        ]);
+
+        
+       $data = $request->courses;
+       foreach ($data as $studentId => $courseId) {
+            $student = Student::find($studentId);
+           $student->courses()->attach($courseId);
+       }
+
+       return back();
+
     }
 }
